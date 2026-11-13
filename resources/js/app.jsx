@@ -27,4 +27,4 @@ window.fetch = async (input, init = {}) => {
   }
   return response;
 };
-createRoot(document.getElementById('app')).render(<React.Suspense fallback={<div className="admin-loading" role="status">Loading Rang Mahal…</div>}>{location.pathname === '/gallery-demo' ? <GalleryDemo/> : location.pathname === '/admin' ? <Admin/> : location.pathname === '/track' ? <TrackingPage/> : <Store/>}</React.Suspense>);
+createRoot(document.getElementById('app')).render(<React.Suspense fallback={<div className="admin-loading" role="status">Loading Herbal Oil…</div>}>{location.pathname === '/gallery-demo' ? <GalleryDemo/> : location.pathname === '/admin' ? <Admin/> : location.pathname === '/track' ? <TrackingPage/> : <Store/>}</React.Suspense>);

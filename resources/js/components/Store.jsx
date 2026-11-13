@@ -61,7 +61,7 @@ export default function Store({ initialProducts }) {
     [ready, setReady] = useState(false),
     [panel, setPanel] = useState(null),
     [selected, setSelected] = useState(null),
-    [category, setCategory] = useState("All Sarees"),
+    [category, setCategory] = useState("All Oils"),
     [search, setSearch] = useState(""),
     [sort, setSort] = useState("featured"),
     [error, setError] = useState(""),
@@ -198,7 +198,7 @@ export default function Store({ initialProducts }) {
   const visible = products
     .filter(
       (p) =>
-        (category === "All Sarees" ||
+        (category === "All Oils" ||
           (category === "Wishlist" && wish.includes(p.id)) ||
           p.category === category) &&
         (brand === "All brands" || p.brand === brand) &&
@@ -216,7 +216,7 @@ export default function Store({ initialProducts }) {
             : 0,
     );
   const categories = [...new Set(products.map((p) => p.category))];
-  function browse(c = "All Sarees") {
+  function browse(c = "All Oils") {
     setCategory(c);
     setMobile(false);
     setPanel(null);
@@ -319,7 +319,7 @@ export default function Store({ initialProducts }) {
                     </button>
                   </div>
                   <div className="product-meta">
-                    <span>{p.fabric} · {p.inventory_tracking===false?"Available to order":p.stock ? `Only ${p.stock} Pieces Left` : "Out of stock"}</span>
+                    <span>{p.fabric} · {p.inventory_tracking===false?"Available to order":p.stock ? `Only ${p.stock} bottles left` : "Out of stock"}</span>
                     <span
                       className={"swatch " + (p.color || "").toLowerCase()}
                       title={p.color}
@@ -344,13 +344,13 @@ export default function Store({ initialProducts }) {
             <IconButton label={mobile?"Close menu":"Open menu"} aria-expanded={mobile} aria-controls="mobile-collection-nav" onClick={() => setMobile(!mobile)}>
               {mobile?<X/>:<Menu />}
             </IconButton>
-            <a className="brand-lockup header-brand" href="/" aria-label="Rang Mahal — home">
-              <img className="brand-emblem" src="/images/rang-mahal-couture-small.webp" srcSet="/images/rang-mahal-couture-small.webp 256w, /images/rang-mahal-couture.webp 768w" sizes="(max-width: 760px) 80px, 110px" alt="" width="320" height="320" fetchPriority="high" />
+            <a className="brand-lockup header-brand" href="/" aria-label="Herbal Oil — home">
+              <img className="brand-emblem" src="/images/botanical/leaf.svg" alt="" width="320" height="320" fetchPriority="high" />
               <span className="brand-wordmark">{business?.brand_name}<span className="brand-tagline">{business?.tagline}</span></span>
             </a>
             <div className="header-actions">
               <IconButton
-                label="Search sarees"
+                label="Search oils"
                 onClick={() => {
                   setPanel("search");
                 }}
@@ -376,8 +376,8 @@ export default function Store({ initialProducts }) {
               </IconButton>
             </div>
           </div>
-          </header><nav id="mobile-collection-nav" aria-label="Saree collections" className={mobile ? "category-nav open" : "category-nav"}>
-            {["All Sarees",...categories].map(c=><button key={c} onClick={()=>browse(c)}>{c}</button>)}
+          </header><nav id="mobile-collection-nav" aria-label="Oil collections" className={mobile ? "category-nav open" : "category-nav"}>
+            {["All Oils",...categories].map(c=><button key={c} onClick={()=>browse(c)}>{c}</button>)}
             <button
               onClick={() => {setMobile(false);document.getElementById("story")?.scrollIntoView({ behavior: "smooth" });}}
             >
@@ -388,18 +388,18 @@ export default function Store({ initialProducts }) {
         <main>
           <section className="hero">
             <img
-              src="/images/campaign.jpg"
-              alt="Golden saree styled for a Pakistani celebration — Rang Mahal"
+              src="/images/botanical/hero.png"
+              alt="Botanical oil bottles with rosemary and olive branches"
               fetchPriority="high"
             />
             <div className="hero-shade" />
             <div className="hero-copy">
-              <h1>{business?.tagline}</h1>
+              <div className="eyebrow">HAIR · SKIN · BODY</div><h1>{business?.tagline}</h1><a className="hero-shop" href="#collection">Shop botanical oils</a>
             </div>
           </section>
-          <section className="collection-menu wrap" aria-label="Browse saree collections">
+          <section className="collection-menu wrap" aria-label="Browse oil collections">
             <div className="collection-segments">
-              {["All Sarees", ...categories].map((c) => (
+              {["All Oils", ...categories].map((c) => (
                 <button
                   type="button"
                   className={category === c ? "active" : ""}
@@ -412,7 +412,7 @@ export default function Store({ initialProducts }) {
               ))}
             </div>
           </section>
-          <section className="collection wrap" id="collection" aria-label="Saree products">
+          <section className="collection wrap" id="collection" aria-label="Botanical oils">
             <div className="collection-tools">
               <div className="sort">
                 <SlidersHorizontal size={15} />
@@ -446,14 +446,14 @@ export default function Store({ initialProducts }) {
             </div>
             {!visible.length && (
               <div className="empty">
-                {catalogLoading ? "Loading the collection…" : demo ? "The collection is temporarily unavailable. Please refresh." : "No sarees found. Try another collection or search."}
+                {catalogLoading ? "Loading the collection…" : demo ? "The collection is temporarily unavailable. Please refresh." : "No oils found. Try another collection or search."}
               </div>
             )}
             <div className="center">
               <button
                 className="outline-button"
                 onClick={() => {
-                  setCategory("All Sarees");
+                  setCategory("All Oils");
                   setSearch("");
                   setBrand("All brands");
                   setToast("You’re viewing the complete collection.");
@@ -467,29 +467,29 @@ export default function Store({ initialProducts }) {
             <div className="editorial-image">
               <img
                 loading="lazy"
-                src="/images/craftsmanship.jpg"
-                alt="Ruby red saree with a golden Banarasi-style border — Rang Mahal"
+                src="/images/botanical/rosemary.webp"
+                alt="Rosemary oil and botanical sprigs"
               />
-              <span>Made to be remembered.</span>
+
             </div>
             <div className="editorial-copy">
-              <div className="eyebrow">OUR STORY</div><h2>The Timeless Grace<br/>of <em>Rang Mahal</em></h2>
-              <p>Rooted in the timeless beauty of South Asian heritage, Rang Mahal celebrates the elegance of sarees through a harmonious blend of tradition, craftsmanship, and contemporary grace. Every drape tells a story of culture, femininity, and artistry, bringing cherished traditions to life with a touch of modern sophistication.</p>
+              <div className="eyebrow">OUR STORY</div><h2>Plant oils for <em>everyday routines</em></h2>
+              <p>Explore botanical oils by routine, from pre-wash hair oiling to everyday face and body care.</p>
             </div>
           </section>
         </main>
         <footer>
           <div className="footer-main wrap">
             <div className="footer-brand">
-              <a className="brand-lockup footer-brand-lockup" href="/" aria-label="Rang Mahal — home">
-                <img className="brand-emblem" src="/images/rang-mahal-couture-small.webp" srcSet="/images/rang-mahal-couture-small.webp 256w, /images/rang-mahal-couture.webp 768w" sizes="(max-width: 760px) 80px, 110px" alt="" width="320" height="320" loading="lazy" decoding="async" />
+              <a className="brand-lockup footer-brand-lockup" href="/" aria-label="Herbal Oil — home">
+                <img className="brand-emblem" src="/images/botanical/leaf.svg" alt="" width="320" height="320" loading="lazy" decoding="async" />
                 <span className="brand-wordmark">{business?.brand_name}<span className="brand-tagline">{business?.tagline}</span></span>
               </a>
               <p>{business?.tagline}</p>
             </div>
             <div>
               <h4>EXPLORE</h4>
-              {["All Sarees", ...categories].slice(0,5).map(
+              {["All Oils", ...categories].slice(0,5).map(
                 (c) => (
                   <button key={c} onClick={() => browse(c)}>
                     {c}
@@ -518,7 +518,7 @@ export default function Store({ initialProducts }) {
           <section className="footer-social wrap" aria-label="Follow Us on Social Media">{business?.support_email&&<p className="footer-contact">Contact us on: <a href={`mailto:${business.support_email}`}>{business.support_email}</a></p>}<h4>Follow Us on Social Media</h4><div><a href={business?.instagram_url} target="_blank" rel="noopener noreferrer"><Instagram size={20}/>Instagram</a><a href={business?.facebook_url} target="_blank" rel="noopener noreferrer"><Facebook size={20}/>Facebook</a>{business?.whatsapp_url?<a href={business.whatsapp_url} target="_blank" rel="noopener noreferrer"><WhatsAppIcon/>WhatsApp</a>:<button disabled title="WhatsApp contact will be available soon"><WhatsAppIcon/>WhatsApp <small>Coming soon</small></button>}</div></section>
           <div className="footer-bottom wrap">
             <span>
-              © {new Date().getFullYear()} Rang Mahal. All rights reserved.
+              © {new Date().getFullYear()} Herbal Oil. All rights reserved.
             </span>
 
             <button onClick={() => setPanel("privacy")}>Privacy policy</button>
@@ -552,21 +552,19 @@ export default function Store({ initialProducts }) {
               <div className="eyebrow">{selected.brand}</div>
               <h2>{selected.name}</h2>
               <div className="price">{money(selectedOption?.price ?? selected.price)} {selectedOption?.discount > 0 && <><del>{money(selectedOption.regular_price)}</del><span className="sale-label">{selectedOption.discount}% OFF</span></>}</div>
-              <fieldset className="variant-picker"><legend>Choose your option</legend>{["Unstitched","Stitched"].map(type=>{const v=selected.variants?.find(v=>v.type===type);return <label key={type} className={!v?.available ? "unavailable" : ""}><input type="radio" name="variant" value={v?.id || ""} checked={v?.id === chosenVariant} disabled={!v?.available} onChange={()=>setChosenVariant(v.id)} />{type}<span>{v?.enabled ? money(v.price) : "Unavailable"} · {v?.enabled ? v.stock===null?"Available to order":v.stock+" Pieces Left" : "Not offered"}</span></label>;})}</fieldset>
+
               {selectedOption?.type==='Stitched'&&<><SizeSelection sizes={selected.size_options} value={chosenSize} onChange={setChosenSize}/><SizeGuide chart={selected.effective_size_chart} reference={sizeReference} notes={selected.sizing_notes}/></>}
               <p>{selected.description}</p><p className="product-shipping">{selected.shipping_info || `Delivery ${money(business?.standard_delivery_charge || 0)}. Free on orders above ${money(business?.free_delivery_threshold || 0)}.`}</p>
               <div className="detail-list">
                 <span>
-                  Fabric <b>{selected.fabric}</b>
+                  Featured botanical <b>{selected.fabric}</b>
                 </span>
                 <span>
-                  Colour <b>{selected.color}</b>
+                  Bottle volume <b>{selected.color}</b>
                 </span>
+
                 <span>
-                  Length <b>{selected.sizing_notes||"See Size Guide for configured dimensions"}</b>
-                </span>
-                <span>
-                  Availability <b>{selectedOption?.available ? selectedOption.stock===null?"Available to order":`Only ${selectedOption.stock} Pieces Left` : "Sold out"}</b>
+                  Availability <b>{selectedOption?.available ? selectedOption.stock===null?"Available to order":`Only ${selectedOption.stock} bottles left` : "Sold out"}</b>
                 </span>
               </div>
               <button
@@ -614,7 +612,7 @@ export default function Store({ initialProducts }) {
                     search: "Find your perfect drape",
                     track: "Track your order",
                     delivery: "Shipping & returns",
-                    care: "Caring for your saree",
+                    care: "Storing your oils",
                     privacy: "Your privacy",
                   }[panel]
                 }
@@ -669,7 +667,7 @@ export default function Store({ initialProducts }) {
                         <div>
                           <h3>{i.product.name}</h3>
                           <p>
-                            {i.variant?.type} {i.selected_size&&`· Size ${i.selected_size}`} · {i.product.color} · {i.product.fabric}
+                            {i.variant?.type === "Unstitched" ? "Bottle" : i.variant?.type} {i.selected_size&&`· Size ${i.selected_size}`} · {i.product.color} · {i.product.fabric}
                             {i.variant?.type==='Stitched'&&<label className="bag-size">Size<select aria-label={`Size for ${i.product.name}`} value={i.selected_size||''} onChange={e=>resizeBag(i,e.target.value)}><option value="">Choose size</option>{i.product.size_options.map(size=><option key={size}>{size}</option>)}</select></label>}
                           </p>
                           <b>{money(i.product.price)}</b>
@@ -756,12 +754,12 @@ export default function Store({ initialProducts }) {
                   <Check size={42} />
                   <h2>Your order is placed.</h2>
                   <p>
-                    Thank you for choosing Rang Mahal. Save your reference to track
+                    Thank you for choosing Herbal Oil. Save your reference to track
                     your order.
                   </p>
                   <strong className="tracking-id">{confirmation.reference}</strong>
                   <button type="button" className="outline-button" onClick={() => {setTrackingReference(confirmation.reference);setTracked(null);setPanel("track");}}>TRACK THIS ORDER</button>
-                  {confirmation.items?.map((i,n)=><p key={n}>{i.name} · {i.variant} {i.selected_size&&`· Size ${i.selected_size}`} × {i.quantity} — {money(i.price*i.quantity)}{Number(i.stitching_charge)>0 && ` (stitching included: ${money(i.stitching_charge)} per piece)`}</p>)}
+                  {confirmation.items?.map((i,n)=><p key={n}>{i.name} · {i.variant === "Unstitched" ? "Bottle" : i.variant} {i.selected_size&&`· Size ${i.selected_size}`} × {i.quantity} — {money(i.price*i.quantity)}{Number(i.stitching_charge)>0 && ` (stitching included: ${money(i.stitching_charge)} per piece)`}</p>)}
                   <p>
                     Delivery: {money(confirmation.shipping)}<br/>Total: {money(confirmation.total)}
                     <br />
@@ -778,7 +776,7 @@ export default function Store({ initialProducts }) {
               ) : (
                 <>
                   <p className="muted">
-                    A few details, and your saree will be on its way.
+                    Enter your delivery details to place your order.
                   </p>
                   {demo && (
                     <div className="notice">
@@ -882,7 +880,7 @@ export default function Store({ initialProducts }) {
                     <div className="totals">
                       {items.map((i) => (
                         <span key={i.line_key}>
-                          {i.product.name} · {i.variant?.type} {i.selected_size&&`· Size ${i.selected_size}`} × {i.quantity}
+                          {i.product.name} · {i.variant?.type === "Unstitched" ? "Bottle" : i.variant?.type} {i.selected_size&&`· Size ${i.selected_size}`} × {i.quantity}
                           <b>{money(i.quantity * i.product.price)}</b>
                         </span>
                       ))}
@@ -937,17 +935,7 @@ export default function Store({ initialProducts }) {
             {panel === "payment" && <div className="policy"><p>Only the options enabled by the store appear at checkout.</p>{payments.cod_enabled && <p>Cash on delivery: pay the confirmed order total when it arrives.</p>}{payments.bank_enabled && <p>Bank transfer: obtain verified payment instructions from the store before making a payment.</p>}<p>Your receipt shows the actual selected payment method. Payment status and courier details appear in verified order tracking.</p></div>}
             {panel === "care" && (
               <div className="policy">
-                <h3>A little care goes a long way.</h3>
-                <p>
-                  Dry clean silk, zari and embellished sarees. Store in a
-                  breathable cotton bag away from direct sunlight.
-                </p>
-                <p>
-                  Refold occasionally to protect the fabric. Avoid perfume
-                  directly on the silk, and use a low iron temperature with a
-                  protective cloth.
-                </p>
-              </div>
+                <h3>How to store your oils</h3><p>Keep bottles tightly closed, away from heat and direct sunlight. Follow the directions on the product label.</p></div>
             )}
             {panel === "privacy" && <StorePolicy business={business} kind="privacy"/>}
           </section>

@@ -1,16 +1,8 @@
-# Rang Mahal project links
+# Herbal Oil project links
 
-- Production store: https://rangmahal.site/
-- Production admin: https://rangmahal.site/admin
-
-- Local Laravel store (Apache/XAMPP): http://localhost:8088/
-- Local Laravel admin: http://localhost:8088/admin
-- Source checkout: `C:\Users\USA11\OneDrive\Documents\ChatGPT\ameer hamza`
-- XAMPP installation: `C:\xampp\htdocs\zariya-saree-store`
-- Repository: https://github.com/Umersaleem98/zariya-saree-store
-- Images: https://github.com/Umersaleem98/zariya-saree-store/tree/main/public/images
-- Setup guide: https://github.com/Umersaleem98/zariya-saree-store/blob/main/README.md
-- Old Next.js online preview: https://zariya-saree-store.netlify.app/
-- Old Netlify project: https://app.netlify.com/projects/zariya-saree-store/overview
-
-The Netlify address is the previous Next.js preview. Production runs Laravel on GoDaddy cPanel. Local links require this computer and XAMPP to be running. No passwords or private database credentials are included here.
+- [GitHub repository](https://github.com/Umersaleem98/Herbal-Oil-Ecommerce)
+- [Local storefront](http://localhost:8000/)
+- [Local staff dashboard](http://localhost:8000/admin)
+- [Local order tracking](http://localhost:8000/track)
+- [Setup and catalog](README.md)
+- [Deployment](DEPLOYMENT.md)

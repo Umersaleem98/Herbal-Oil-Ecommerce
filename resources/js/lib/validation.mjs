@@ -60,7 +60,7 @@ export function normalizeItems(items) {
       throw Error("Invalid item quantity.");
     result.set(i.id, (result.get(i.id) || 0) + i.quantity);
     if (result.get(i.id) > 20)
-      throw Error("Maximum 20 of each saree per order.");
+      throw Error("Maximum 20 of each oil per order.");
   }
   return [...result]
     .map(([id, quantity]) => ({ id, quantity }))

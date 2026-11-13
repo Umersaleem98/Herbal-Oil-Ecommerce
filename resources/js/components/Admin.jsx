@@ -27,7 +27,7 @@ import {
   CreditCard,
   ShieldCheck,
 } from "lucide-react";
-import {BusinessDashboard,CustomerDashboard,BusinessSettingsForm,ShipmentEditor,ProductBusinessFields,ProductListing,OrderListing} from "./BusinessAdmin";
+import {BusinessDashboard,CustomerDashboard,BusinessSettingsForm,ShipmentEditor,ProductListing,OrderListing} from "./BusinessAdmin";
 import {ProductOptions, UserManagement, staffRoles, roleLabel} from './AdminCommerce';
 import { money } from "../lib/catalog.mjs";
 import { parseCSV, toCSV } from "../lib/csv.mjs";
@@ -140,11 +140,11 @@ export default function Admin() {
     }
   }
   if (loading)
-    return <div className="admin-loading">Loading Rang Mahal administration…</div>;
+    return <div className="admin-loading">Loading Herbal Oil administration…</div>;
   if (!user || !staffRoles.includes(user.role))
     return (
       <div className="admin-login">
-        <a className="wordmark admin-logo-lockup" href="/"><img src="/images/rang-mahal-couture-small.webp" alt="Rang Mahal" width="90" height="90"/>
+        <a className="wordmark admin-logo-lockup" href="/"><img src="/images/botanical/leaf.svg" alt="Herbal Oil" width="90" height="90"/>
           RANG MAHAL<span>STORE ADMINISTRATION</span>
         </a>
         <div className="login-card">
@@ -224,7 +224,7 @@ export default function Admin() {
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
-        <a className="wordmark admin-logo-lockup" href="/"><img src="/images/rang-mahal-couture-small.webp" alt="Rang Mahal" width="90" height="90"/>
+        <a className="wordmark admin-logo-lockup" href="/"><img src="/images/botanical/leaf.svg" alt="Herbal Oil" width="90" height="90"/>
           RANG MAHAL<span>THE ADMIN SUITE</span>
         </a>
 
@@ -597,7 +597,7 @@ export default function Admin() {
                 <label className="payment-setting-row">
                   <div>
                     <strong>Cash on delivery</strong>
-                    <p>Customers pay when their saree arrives.</p>
+                    <p>Customers pay when their order arrives.</p>
                   </div>
                   <input
                     className="toggle-switch"
@@ -696,7 +696,7 @@ export default function Admin() {
                     [
                       {
                         ...blank,
-                        name: "Sample saree",
+                        name: "Sample botanical oil",
                         category: data.categories[0]?.name,
                         brand: data.brands[0]?.name,
                         price: 12000,
