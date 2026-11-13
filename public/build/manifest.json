@@ -1,0 +1,23 @@
+{
+  "resources/js/app.jsx": {
+    "file": "assets/app-CZZE9o93.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/components/Admin.jsx"
+    ],
+    "css": [
+      "assets/app-B-OFR8fm.css"
+    ]
+  },
+  "resources/js/components/Admin.jsx": {
+    "file": "assets/Admin-BKucqsz8.js",
+    "name": "Admin",
+    "src": "resources/js/components/Admin.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  }
+}
