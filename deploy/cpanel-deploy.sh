@@ -10,7 +10,7 @@ if [[ -z "$ACCOUNT_HOME" || "$SOURCE_DIR" != "$ACCOUNT_HOME"/repositories/rangma
   echo 'Run this script from the registered Rang Mahal repository.' >&2; exit 1
 fi
 if [[ ! -f "$APP_DIR/.env" ]]; then echo 'Configure private production .env before deployment.' >&2; exit 1; fi
-if [[ ! -f "$SOURCE_DIR/public/build/manifest.json" ]]; then echo 'Frontend assets are missing. Build locally before pushing.' >&2; exit 1; fi
+if [[ ! -f "$SOURCE_DIR/public/assets/bootstrap.min.css" ]]; then echo 'Frontend assets are missing. Include the checked-in public/assets directory.' >&2; exit 1; fi
 mkdir -p "$APP_DIR" "$BACKUP_DIR"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 tar -czf "$BACKUP_DIR/public-$STAMP.tar.gz" -C "$PUBLIC_DIR" .

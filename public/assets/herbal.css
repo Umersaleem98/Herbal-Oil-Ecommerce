@@ -1,0 +1,9 @@
+:root{--forest:#15382a;--bs-body-bg:#fbfdfb;--bs-body-color:#19382b;--bs-success-rgb:35,88,64}
+.bg-forest{background:var(--forest)}
+.shop-hero{background:linear-gradient(90deg,#10271ee8,#10271e32),url('/images/botanical/hero.png') right center/cover;min-height:clamp(320px,41vw,540px);display:flex;align-items:center}
+.shop-hero h1{font-family:Georgia,serif}
+.product-image{aspect-ratio:1;object-fit:cover;background:#edf4ee}
+#catalog{scroll-margin-top:5rem}
+.table-responsive{overflow-wrap:anywhere}
+.card{--bs-card-border-color:#dce8df}
+.offcanvas{--bs-offcanvas-width:min(100vw,480px)}

@@ -1,6 +1,6 @@
 # Herbal Oil Ecommerce
 
-A Laravel and React storefront for botanical hair, face, and body oils, with a staff dashboard for products, inventory, orders, and store settings.
+A Laravel and Bootstrap 5 storefront for botanical hair, face, and body oils, with a staff dashboard for products, inventory, orders, and store settings.
 
 ![Amber botanical oil bottles with rosemary and olive branches on limestone](public/images/botanical/hero.png)
 
@@ -19,14 +19,12 @@ Catalog images are generated mockups. Replace them with actual packaging photogr
 
 ## Local setup
 
-Install PHP 8.2 or newer, Composer, Node.js and npm, and MySQL or MariaDB. Run these commands from the repository directory.
+Install PHP 8.2 or newer, Composer, and MySQL or MariaDB. Run these commands from the repository directory.
 
 ```powershell
 composer install
 Copy-Item .env.example .env
 php artisan key:generate
-npm ci
-npm run build
 ```
 
 Create the database in MySQL or MariaDB.
@@ -50,11 +48,6 @@ php artisan serve
 Start XAMPP MySQL if using XAMPP for the database. If serving with Apache, point its document root at the Laravel `public` directory. The six starter products have zero stock until you enter quantities in the dashboard.
 
 ## Development and checks
-
-```powershell
-npm run dev
-npm run build
-```
 
 Create a separate local database named `herbal_oil_test` before running the Laravel suite. Some inherited tests still expect saree-specific behavior, reference prefixes, or branding.
 

@@ -2,7 +2,7 @@
 
 Configure PHP 8.2 or newer, Composer, and MySQL or MariaDB. Set the web document root to Laravel's public directory and use the production database credentials in the server's .env file.
 
-Build locally or in CI with npm ci and npm run build. Deploy the resulting public/build directory together with the application, then run these commands on the server.
+Deploy the application together with the checked-in Bootstrap and JavaScript files under public/assets. Then run these commands on the server.
 
 ```sh
 composer install --no-dev --optimize-autoloader
